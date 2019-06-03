@@ -53,6 +53,7 @@ class Page:
                           font_filename=font)
 
         img.save('sample-imagetext.png')
+
     def get_pieces(self):
         return self.pieces
 

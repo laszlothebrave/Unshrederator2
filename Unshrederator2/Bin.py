@@ -1,12 +1,17 @@
+from random import shuffle
+
+
 class Bin:
     def __init__(self):
-        self.book_list = []
+        self.books = []
 
     def add_book(self, book):
-        self.book_list.append(book)
+        self.books.append(book)
 
-    def add_books(self, books):
-        self.book_list.extend(books)
+    def get_pieces(self):
+        pieces = []
+        for book in self.books:
+            pieces.extend(book.get_pieces())
+        shuffle(pieces)
+        return pieces
 
-    def mix(self):
-        pass
