@@ -18,3 +18,4 @@ class Book:
         pieces = []
         for page in self.pages:
             pieces.extend(page.get_pieces())
+        return pieces
