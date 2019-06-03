@@ -5,7 +5,7 @@ from PIL.ImageShow import show
 
 
 class Shreder:
-    def __init__(self, pieces_number = 25):
+    def __init__(self, pieces_number = 10):
         self.pieces_number = pieces_number
 
     def shred(self, bin):
@@ -18,8 +18,10 @@ class Shreder:
 
     def shred_single_page(self, page):
         pieces = []
-        pieces.extend(image_slicer.slice('page.png', self.pieces_number, save=False))
-        show(pieces[20].image)
+        tiles = image_slicer.slice('page.png', self.pieces_number*self.pieces_number, save=False)
+        for tile in tiles:
+            pieces.append(tile.image)
+        show(pieces[int(self.pieces_number*self.pieces_number/2)])
         return pieces
 
 
