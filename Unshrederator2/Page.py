@@ -6,6 +6,7 @@ from Unshrederator2.ImageText import ImageText
 class Page:
     def __init__(self, text):
         self.text = text
+        self.image = None
         img = Image.new('RGB', (2480 , 3508), color=(255, 255, 255))
         # 140, 254 + 60
         font = ImageFont.truetype('resources/LibreBaskerville-Regular.ttf', 40)
@@ -20,7 +21,6 @@ class Page:
                           "gggggggggggggggggggggggggggggggggggggggggggggggg ", font=font, fill=(0, 0, 0))
 
         img.save('pil_text_font.png')
-        self.pieces = []
 
         font = 'resources/LibreBaskerville-Regular.ttf'
         color = (50, 50, 50)
@@ -53,7 +53,4 @@ class Page:
                           font_filename=font)
 
         img.save('sample-imagetext.png')
-
-    def get_pieces(self):
-        return self.pieces
 

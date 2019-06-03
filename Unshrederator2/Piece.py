@@ -5,10 +5,10 @@ from gutenberg.query import list_supported_metadatas, get_metadata
 
 class Piece:
     def __init__(self):
-        self.left
-        self.right
-        self.up
-        self.down
+        self.left = None
+        self.right = None
+        self.up = None
+        self.down = None
 
     def show_piece(self):
         print("This is piece")

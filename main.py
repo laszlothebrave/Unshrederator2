@@ -10,7 +10,7 @@ def main():
     original_bin.add_book(book)
 
     shreder = Shreder()
-    pieces = shreder.shred(bin)
+    pieces = shreder.shred(original_bin)
 
     unshrederator = Unshrederator()
     recreated_bin = unshrederator.recreate(pieces)

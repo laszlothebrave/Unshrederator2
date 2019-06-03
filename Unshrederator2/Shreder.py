@@ -7,13 +7,15 @@ class Shreder:
 
     def shred(self, bin):
         pieces = []
-        pieces.extend(bin.get_pieces(self))
+        for book in bin.books:
+            for page in book.pages:
+                pieces.extend(self.shred_single_page(page))
         shuffle(pieces)
         return pieces
 
     def shred_single_page(self, page):
         pieces = []
-        pieces.append(page.copy())
+        pieces.append(page)
         return pieces
 
 
