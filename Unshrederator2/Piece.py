@@ -18,7 +18,6 @@ class Piece:
         with open(scinek, "rb") as imageFile:
             stri = base64.b64encode(imageFile.read())
         assert isinstance(stri, str)
-        # string = None
         return self.find_letter_in_string(stri)
 
     def find_letter_in_string(self, scinek):

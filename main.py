@@ -1,3 +1,4 @@
+from Unshrederator2.AlphabetPrinter import AlphabetPrinter
 from Unshrederator2.Bin import Bin
 from Unshrederator2.Book import Book
 from Unshrederator2.Evaluator import Evaluator
@@ -21,4 +22,6 @@ def main():
 
 
 main()
+al = AlphabetPrinter()
+al.print('a')
 
