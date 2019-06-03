@@ -6,7 +6,7 @@ from Unshrederator2.Unshrederator import Unshrederator
 
 def main():
     original_bin = Bin()
-    book = Book(27011)
+    book = Book(2701)
     original_bin.add_book(book)
 
     shreder = Shreder()
