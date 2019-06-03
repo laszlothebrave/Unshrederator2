@@ -3,6 +3,8 @@ from random import shuffle
 import image_slicer
 from PIL.ImageShow import show
 
+from Unshrederator2.Piece import Piece
+
 
 class Shreder:
     def __init__(self, pieces_number = 10):
@@ -20,8 +22,9 @@ class Shreder:
         pieces = []
         tiles = image_slicer.slice('page.png', self.pieces_number*self.pieces_number, save=False)
         for tile in tiles:
-            pieces.append(tile.image)
-        show(pieces[int(self.pieces_number*self.pieces_number/2)+2])
+            pieces.append(Piece(tile.image))
+        #show(pieces[int(self.pieces_number*self.pieces_number/2)+2].image)
+        print(pieces[int(self.pieces_number * self.pieces_number / 2) + 2].find_with_patern_matching())
         return pieces
 
 
