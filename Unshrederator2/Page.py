@@ -14,7 +14,7 @@ class Page:
         d = ImageDraw.Draw(img)
         d.multiline_text((140, 254), self.text, font=font, fill=(0, 0, 0), spacing = 10)
         print(self.text)
-        img.save('pil_text_font.png')
+        img.save('page.png')
 
         font = 'resources/LibreBaskerville-Regular.ttf'
         color = (50, 50, 50)
