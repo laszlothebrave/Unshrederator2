@@ -21,7 +21,7 @@ class Shreder:
         tiles = image_slicer.slice('page.png', self.pieces_number*self.pieces_number, save=False)
         for tile in tiles:
             pieces.append(tile.image)
-        show(pieces[int(self.pieces_number*self.pieces_number/2)])
+        show(pieces[int(self.pieces_number*self.pieces_number/2)+2])
         return pieces
 
 
