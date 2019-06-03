@@ -25,7 +25,7 @@ class Evaluator:
             original_page_split[original_page_split.index(word):]:
                 recreated_score += 1
 
-        score = (recreated_score / (recreated_page_len - 1)) * 0.25
+        score += (recreated_score / (recreated_page_len - 1)) * 0.25
 
         return score
 
