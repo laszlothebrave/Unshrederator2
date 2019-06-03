@@ -12,5 +12,3 @@ class Piece:
 
     def show_piece(self):
         print("This is piece")
-
-
