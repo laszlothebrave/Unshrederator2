@@ -1,7 +1,10 @@
+from cv2.cv2 import imread
+
 from Unshrederator2.AlphabetPrinter import AlphabetPrinter
 from Unshrederator2.Bin import Bin
 from Unshrederator2.Book import Book
 from Unshrederator2.Evaluator import Evaluator
+from Unshrederator2.LetterReconizer import reconize_letter
 from Unshrederator2.Shreder import Shreder
 from Unshrederator2.Unshrederator import Unshrederator
 
@@ -20,6 +23,7 @@ def main():
     evaluator.set_original_bin(original_bin)
     evaluator.evaluate_bin(recreated_bin)
 
-
-main()
+AlphabetPrinter.read_alphabet_from_files()
+img = AlphabetPrinter.images['a']
+reconize_letter(img)
 

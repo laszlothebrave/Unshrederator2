@@ -50,7 +50,7 @@ class Piece:
         #
         # cv2.waitKey(0)
         image = cv2.imread('resources/tiles/first.png')
-        template = cv2.imread('resources/alphabet/a.png')
+        template = cv2.imread('resources/alphabet/97.png')
 
         image = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
         template = cv2.resize(template, (0, 0), fx=0.5, fy=0.5)
@@ -61,9 +61,32 @@ class Piece:
         w, h = templateGray.shape[::-1]
 
         res = cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
-        threshold = 0.8
+        threshold = 0.7
         loc = np.where(res >= threshold)
         for pt in zip(*loc[::-1]):
             cv2.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 0), 2)
 
         cv2.imwrite('res.png', image)
+
+    def leters_pieces(self):
+        image = cv2.imread('resources/tiles/first.png')
+        img2 = image
+        #img2 = np.pad(image.copy(), ((200, 200), (200, 200), (0, 0)), 'edge')
+        # call openCV with img2, it will set all the border pixels in our new pad with 0
+        # now get rid of our border
+        imgray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        imgray = cv2.bitwise_not(imgray)
+
+        ret, thresh = cv2.threshold(imgray, 127, 255, 0)
+        contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+        cnt = contours[4]
+        cv2.drawContours(img2, [cnt], 0, (0, 255, 0), 3)
+        #image = img2[200:-200, 200:-200, :]
+
+        for cont in contours:
+            x, y, w, h = cv2.boundingRect(cont)
+            print (x, y)
+            if y<=1:
+                cv2.drawContours(img2, [cont], 0, (0, 255, 0), 3)
+        cv2.imwrite('resources/tiles/first.png', image)

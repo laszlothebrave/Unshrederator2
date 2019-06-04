@@ -26,6 +26,7 @@ class Shreder:
             pieces.append(Piece(tile.image))
         #show(pieces[int(self.pieces_number*self.pieces_number/2)+2].image)
         imwrite('resources/tiles/first.png', pieces[int(self.pieces_number * self.pieces_number / 2) + 2].image)
+        pieces[int(self.pieces_number * self.pieces_number / 2) + 2].leters_pieces()
         print(pieces[int(self.pieces_number * self.pieces_number / 2) + 2].find_with_patern_matching())
 
         return pieces
