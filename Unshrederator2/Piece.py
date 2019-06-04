@@ -90,7 +90,7 @@ class Piece:
 
         for cont in contours:
             x, y, w, h = cv2.boundingRect(cont)
-            if y <= 1:
+            if y > 10 & y < 50:
                 cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 0), 1)
                 self.letters.append(Letter(image[x:x + w, y:y + h]))
 
