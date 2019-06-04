@@ -2,6 +2,10 @@ import cv2
 import base64
 import numpy as np
 
+from Unshrederator2.ArrayManipulation import show_from_array
+from Unshrederator2.Letter import Letter
+
+
 class Piece:
     def __init__(self, image):
         self.image = image
@@ -9,6 +13,7 @@ class Piece:
         self.right = None
         self.up = None
         self.down = None
+        self.letters = []
 
     def show_piece(self):
         print("This is piece")
@@ -70,23 +75,28 @@ class Piece:
 
     def letters_pieces(self):
         image = cv2.imread('resources/tiles/first.png')
-        img2 = image
         #img2 = np.pad(image.copy(), ((200, 200), (200, 200), (0, 0)), 'edge')
         # call openCV with img2, it will set all the border pixels in our new pad with 0
         # now get rid of our border
-        imgray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        imgray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         imgray = cv2.bitwise_not(imgray)
 
         ret, thresh = cv2.threshold(imgray, 127, 255, 0)
         contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         cnt = contours[4]
-        cv2.drawContours(img2, [cnt], 0, (0, 255, 0), 3)
+
         #image = img2[200:-200, 200:-200, :]
 
         for cont in contours:
             x, y, w, h = cv2.boundingRect(cont)
-            print(x, y)
             if y <= 1:
-                cv2.drawContours(img2, [cont], 0, (0, 255, 0), 3)
+                cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 0), 1)
+                # self.letters.append(Letter(image[x:x + w, y:y + h]))
+
+                show_from_array(image[x:x + w, y:y + h])
+                cv2.drawContours(image, [cnt], 0, (0, 255, 0), 3)
+                #print(self.letters[-1].letter)
+
+                # cv2.drawContours(image, [cont], 0, (0, 255, 0), 3)
         cv2.imwrite('resources/tiles/first.png', image)
