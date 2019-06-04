@@ -1,8 +1,4 @@
 import cv2
-from gutenberg.acquire import load_etext
-from gutenberg.cleanup import strip_headers
-from gutenberg.query import list_supported_metadatas, get_metadata
-
 import base64
 
 class Piece:
@@ -26,7 +22,7 @@ class Piece:
         return set(scinek)
 
     def find_with_patern_matching(self):
-        image = self.image
+        image = cv2.imread('/resources/tiles/first.png')
         template = cv2.imread('/resources/alphabet/a.png')
 
         imageGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

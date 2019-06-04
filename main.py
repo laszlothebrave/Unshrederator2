@@ -22,6 +22,4 @@ def main():
 
 
 main()
-al = AlphabetPrinter()
-al.print('a')
 
