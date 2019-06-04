@@ -92,11 +92,11 @@ class Piece:
             x, y, w, h = cv2.boundingRect(cont)
             if y <= 1:
                 cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 0), 1)
-                # self.letters.append(Letter(image[x:x + w, y:y + h]))
+                self.letters.append(Letter(image[x:x + w, y:y + h]))
 
-                show_from_array(image[x:x + w, y:y + h])
-                cv2.drawContours(image, [cnt], 0, (0, 255, 0), 3)
-                #print(self.letters[-1].letter)
+                show_from_array(image[y:y + h, x:x + w])
+                # cv2.drawContours(image, [cnt], 0, (0, 255, 0), 3)
+                print(self.letters[-1].letter)
 
                 # cv2.drawContours(image, [cont], 0, (0, 255, 0), 3)
         cv2.imwrite('resources/tiles/first.png', image)

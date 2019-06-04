@@ -26,4 +26,6 @@ def main():
 
 
 AlphabetPrinter.read_alphabet_from_files()
+image = imread('resources/alphabet/66.png')
+print(recognize_letter(image))
 main()
