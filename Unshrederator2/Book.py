@@ -27,7 +27,7 @@ class Book:
             if line_counter == 50:
                 page_counter += 1
                 line_counter = 0
-                if (page_counter >= self.first_page):
+                if page_counter >= self.first_page:
                     self.pages.append(self.create_page(tmp))
                 if page_counter == self.last_page:
                     return

@@ -22,7 +22,7 @@ class Evaluator:
         recreated_score = 0
         for word in recreated_page_split:
             if recreated_page_split[recreated_page_split.index(word) + 1] in \
-            original_page_split[original_page_split.index(word):]:
+                    original_page_split[original_page_split.index(word):]:
                 recreated_score += 1
 
         score += (recreated_score / (recreated_page_len - 1)) * 0.25
@@ -43,5 +43,4 @@ class Evaluator:
         return score / original_len
 
     def evaluate_bin(self, recreated):
-        print ('Bin evaluated')
-
+        print('Bin evaluated')

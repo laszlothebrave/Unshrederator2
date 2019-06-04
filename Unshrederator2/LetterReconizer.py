@@ -3,7 +3,7 @@ import numpy as np
 from Unshrederator2.AlphabetPrinter import AlphabetPrinter
 
 
-def reconize_letter(image):
+def recognize_letter(image):
 
 
     image = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
@@ -20,6 +20,5 @@ def reconize_letter(image):
         res = cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
         threshold = 0.7
         loc = np.where(res >= threshold)
-        for pt in zip(*loc[::-1]):
-            cv2.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 0), 2)
-        cv2.imwrite('res.png', image)
+        if res > threshold:
+            return letter

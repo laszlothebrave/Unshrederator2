@@ -21,7 +21,7 @@ class AlphabetPrinter:
 
     def print_alphabet_to_files():
         for letter in AlphabetPrinter.alphabet:
-            print(letter)
+            AlphabetPrinter.print_letter_to_file(letter)
 
     def read_alphabet_from_files():
         for letter in AlphabetPrinter.alphabet:

@@ -22,7 +22,7 @@ class Piece:
     def find_letter_in_string(self, scinek):
         return set(scinek)
 
-    def find_with_patern_matching(self):
+    def recognize_consecutive_letters(self):
         # image = cv2.imread('resources/tiles/first.png')
         # template = cv2.imread('resources/alphabet/a.png')
         #
@@ -68,7 +68,7 @@ class Piece:
 
         cv2.imwrite('res.png', image)
 
-    def leters_pieces(self):
+    def letters_pieces(self):
         image = cv2.imread('resources/tiles/first.png')
         img2 = image
         #img2 = np.pad(image.copy(), ((200, 200), (200, 200), (0, 0)), 'edge')
@@ -86,7 +86,7 @@ class Piece:
 
         for cont in contours:
             x, y, w, h = cv2.boundingRect(cont)
-            print (x, y)
-            if y<=1:
+            print(x, y)
+            if y <= 1:
                 cv2.drawContours(img2, [cont], 0, (0, 255, 0), 3)
         cv2.imwrite('resources/tiles/first.png', image)
