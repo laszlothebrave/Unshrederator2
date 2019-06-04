@@ -2,7 +2,7 @@ from random import shuffle
 
 import image_slicer
 from PIL.ImageShow import show
-from cv2.cv2 import imwrite
+from imageio import imwrite
 
 from Unshrederator2.Piece import Piece
 
@@ -25,7 +25,7 @@ class Shreder:
         for tile in tiles:
             pieces.append(Piece(tile.image))
         #show(pieces[int(self.pieces_number*self.pieces_number/2)+2].image)
-        imwrite('/resources/tiles/first.png', pieces[int(self.pieces_number * self.pieces_number / 2) + 2])
+        imwrite('resources/tiles/first.png', pieces[int(self.pieces_number * self.pieces_number / 2) + 2].image)
         print(pieces[int(self.pieces_number * self.pieces_number / 2) + 2].find_with_patern_matching())
 
         return pieces
