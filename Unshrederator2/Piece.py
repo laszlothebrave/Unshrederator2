@@ -60,10 +60,10 @@ class Piece:
 
         w, h = templateGray.shape[::-1]
 
-        res = cv2.matchTemplate(imageGray, template, cv2.TM_CCOEFF_NORMED)
+        res = cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
         threshold = 0.8
         loc = np.where(res >= threshold)
         for pt in zip(*loc[::-1]):
-            cv2.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)
+            cv2.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 0), 2)
 
         cv2.imwrite('res.png', image)
