@@ -3,6 +3,7 @@ from cv2.cv2 import imread
 from Unshrederator2.AlphabetPrinter import AlphabetPrinter
 from Unshrederator2.Bin import Bin
 from Unshrederator2.Book import Book
+from Unshrederator2.Comparator import compare
 from Unshrederator2.Evaluator import Evaluator
 from Unshrederator2.LetterReconizer import recognize_letter
 from Unshrederator2.Shreder import Shreder
@@ -28,6 +29,7 @@ def main():
 AlphabetPrinter.read_alphabet_from_files()
 image = imread('resources/alphabet/73.png')
 
-main()
+# main()
+compare()
 
 

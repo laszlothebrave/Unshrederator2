@@ -1,6 +1,9 @@
+from random import shuffle
+
 import cv2
 import base64
 import numpy as np
+from PIL import Image
 
 from Unshrederator2.ArrayManipulation import show_from_array
 from Unshrederator2.Letter import Letter
@@ -87,14 +90,15 @@ class Piece:
         cnt = contours[4]
 
         #image = img2[200:-200, 200:-200, :]
-
+        shuffle(contours)
         for cont in contours:
             x, y, w, h = cv2.boundingRect(cont)
-            if y > 10 & y < 50:
+            if y <=1:
                 cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 0), 1)
                 self.letters.append(Letter(image[x:x + w, y:y + h]))
 
                 show_from_array(image[y:y + h, x:x + w])
+                cv2.imwrite('litera.png', image[y:y + h, x:x + w])
                 # cv2.drawContours(image, [cnt], 0, (0, 255, 0), 3)
                 print(self.letters[-1].letter)
 

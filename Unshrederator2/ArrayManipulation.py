@@ -9,5 +9,5 @@ def show_from_array(array):
 
 def make_image_from_array(matrix):
     image = Image.fromarray(matrix, 'RGB')
-    imwrite('temp.png', image)
+    imwrite('temp.png', matrix)
     return imread('temp.png')
