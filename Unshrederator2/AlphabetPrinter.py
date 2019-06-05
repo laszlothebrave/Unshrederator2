@@ -26,3 +26,6 @@ class AlphabetPrinter:
     def read_alphabet_from_files():
         for letter in AlphabetPrinter.alphabet:
             AlphabetPrinter.images[letter] = imread('resources/alphabet/' + str(ord(letter)) + '.png')
+
+    def get_letter_image(letter):
+        return imread('resources/alphabet/' + str(ord(letter)) + '.png')
